@@ -1,4 +1,5 @@
 def testing(n):
+    assert type(n)==int, "argument must be an integer"
     if n<10:
         print("How Sweet!")
     else:
