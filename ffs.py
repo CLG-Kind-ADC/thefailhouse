@@ -1,3 +1,9 @@
+def testing(n):
+    if n<10:
+        print("How Sweet!")
+    else:
+        print("How sour!")
+
 def dont_try(n):
 	# DOESN'T WORK FOR BIG THINGS: Recursion overload.
     """Return the nth element of up-down, seven-switch sequence.
