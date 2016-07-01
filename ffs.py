@@ -38,8 +38,9 @@ def dont_try(n):
         return dont_try(n-1)+no_switch()
 
 def tiesto(hello):
+    # Do not attempt on very large numbers. Remember kids, for loops are inefficient as shit
     """ 
-    Returns the highest power of two lower than 'hello.'
+    Returns the highest power of two lower than 'hello'.
     """
     import math
     if (math.log(hello)/math.log(2))%1==0:
