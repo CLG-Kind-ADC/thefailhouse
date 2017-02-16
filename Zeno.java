@@ -60,3 +60,6 @@ public class Zeno {
         }
     }
 }
+
+//going by halves: half of half of half of half...
+//proves that YES, of course, achilles catches the tortoise eventually.
