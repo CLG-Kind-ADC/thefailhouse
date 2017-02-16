@@ -16,8 +16,30 @@ public class Zeno {
 
         while (aPos < tPos) { 
 
-            // NOTE: This loop increments by time remaining
-            // not by any set time interval (e.g. every 2 seconds)
+            /*
+            I consider this situation to move in "cycles"
+            A new cycle starts whenever Achilles reaches la tortuga's last starting location
+            (tortuga's base case starting location: 100 units)
+
+            The first three lines (the prints) describe the conditions at start of cycle
+            The next three lines (the expressions/redefinitions) show how things change during the cycle
+            These changes are not explicitly shown (i.e., printed) until the start of the NEXT cycle
+            (so we don't see the positions they are at when finally aPos >= tPos.
+            Because the loop breaks before those end positions can print.)
+
+            example, using starting case
+            "at time 0 achilles is at position 0 and tortuga is at 100"
+            Then achilles runs to position 100 from position 0
+            (taking 5 seconds; this is calculated by timeToReach.)
+            He is now at position 100
+            (his new position is registered by the redefined aPos.)
+            In those 5 seconds, the turtle has gained distance as well.
+            (this is shown by the new tPos)
+            So Achilles is now at 0+100=100, the tortoise is now at 100+50=150
+            The time elapsed is now 0+5=5 seconds
+            These are our starting points for the NEXT cycle (loop)
+            Repeat cycle (loop) with new starting points.
+            */
 
             System.out.println("At time: " + totalTime);
             System.out.println("    " + a + " is at position " + aPos);
@@ -26,24 +48,15 @@ public class Zeno {
             double timeToReach = (tPos - aPos) / aSpeed;
             /* above line: 
             creates new double called Time to Reach, which represents
-            The time it would take Achilles to cover
-            the distance that remains at this time
-            between him and la tortuga */
+            The TIME it would take Achilles to cover
+            the CURRENT distance between him and la tortuga
+            (distance / rate = time) */
 
-            // FOR THE NEXT ITERATION OF THE LOOP 
+            // FOR THE NEXT LOOP (should it be needed)
+            // our starting points will become:
             totalTime = totalTime + timeToReach;
-            // increments up totalTime by adding TO the CURRENT total time (time elapsed)
-            // the time remaining until Achilles reaches the tortoise at their speeds
-            aPos = aPos + timeToReach * aSpeed;
-            // Achilles's position increments up by 
-            // adding TO his CURRENT position
-            // the distance he covers in the remaining time (instantaneous)
-            // that it will take him to reach the tortoise 
+            aPos = aPos + timeToReach * aSpeed; // timeToReach * aSpeed = tPos - aPos
             tPos = tPos + timeToReach * tSpeed;
-            // Tortoise's position increments up by 
-            // adding TO his CURRENT position
-            // the distance he covers in the remaining time (instantaneous)
-            // that it will take Achilles to reach him 
         }
     }
 }
