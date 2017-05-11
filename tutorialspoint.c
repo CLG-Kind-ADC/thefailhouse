@@ -21,8 +21,9 @@ int main(){
 // function call
    int x = func();
 
+   printf("%d",i+j);
    printf("this is an integer list: %d\n%d\n%d\n",i,j,k);
-   
+
   // return 0;
 }
 
