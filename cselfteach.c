@@ -1,6 +1,7 @@
 //#include <stdio.h>
 #include "csupport.c"
 #include <float.h>
+#include <math.h>
 
 int i=10, j=11, k=290;
 int z = 19;
@@ -14,7 +15,7 @@ double d;
 
 // function declaration
 int func();
-extern void write_extern(void);
+//extern void write_extern(void);
 
 int main(){
 	   printf("Storage size for float : %d \n", sizeof(float));
@@ -30,6 +31,9 @@ int main(){
    //count = 5;
    write_extern();
 
+   long lolo = pow(5,4);
+   printf("%d\n",lolo);
+
 
 // function call
    int x = func();
@@ -37,7 +41,7 @@ int main(){
    printf("%d",i+j); putchar('\n');
 // above does not work if you do two printfs instead of the putchar
 // Don't know why.
-   printf("this is an integer list: %d\n%d\n%d\n",i,j,k);
+   printf("this is an integer list: %d, %d, %d\n",i,j,k);
    printf("%d\n",x);
 
   // return 0;
