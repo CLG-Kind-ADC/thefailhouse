@@ -114,7 +114,7 @@ int marcus(int x){
 
 int katherine(int qq)   {  
 
-//the function after the keyword (LOOP) will run even if
+//the function after the keyword (LOOP) will run even
 // if not sent by the goto.
   LOOP:marcus(qq);      do {
  
