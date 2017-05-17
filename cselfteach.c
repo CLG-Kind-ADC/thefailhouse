@@ -19,7 +19,21 @@ int func();
 //extern void write_extern(void);
 void hello();
 int marcus();
-int elizabeth();
+int katherine();
+
+int max();
+
+int alternative_max(int one, int two){
+   int result;
+   if (one > two){
+      result = one;
+   }
+   else{
+      result = two;
+   }
+   return result;
+}
+
 int main(){
 	   printf("Storage size for float : %d \n", sizeof(float));
    printf("Minimum float positive value: %E\n", FLT_MIN );//same thing as with %d
@@ -60,6 +74,9 @@ print_stars_like_java();
 
 hello();
 
+printf("This is the greater number! %d\n",max(10,94));
+printf("this should give exact same # as above: %d\n",max(10,94));
+
   // return 0;
 }
 
@@ -69,21 +86,41 @@ int func(){
 	return 0;
 }
 
-//for some reason, calling these void doesn't work
+//next section:
 
+// this is evidently not the express purposes of "goto"
+//but it works...only due to the "if" in marcus
+
+//"continue" can do basically the same thing: skip if condition
+
+//goto is probably most useful if you have an end condition
+// and when/if it hits that condition
+//you want program to go straight somewhere else and not come back
+
+// possible: get it to work like I'm thinking:
+// put all into one function. Hmm...
 int marcus(int x){
-  if (x==15){printf("leedleedlee\n");}
+
+   //15 or 16: changes depending on where I put the LOOP keyword
+   //16 if outside do
+   //15 if inside
+  if (x==16){printf("leedleedlee\n")
+   ;}
 
 }
+//calling katherine anywhere inside Marcus will likely result in endless loop
+//  nested, and no exit case
+//as I've called it previously, "some weird echo shit"
 
 int katherine(int qq)   {  
 
 //the function after the keyword (LOOP) will run even if
 // if not sent by the goto.
-       do {LOOP:marcus(qq); 
+  LOOP:marcus(qq);      do {
  
       if( qq == 15) {
          /* skip the iteration */
+
          qq = qq + 1;
          goto LOOP;
       }
@@ -97,13 +134,19 @@ int print_stars_like_java(){
 // you must create a character array
 // and it must be long enough
 // also just declaring char str; won't work, because you can't
-   // add on to it (I'm pretty sure)
+// add on to it in C: no appending (at leastI'm pretty sure)
    char str[10];
    int k= 0;
    char* luna = "*";
-   strcpy(str,luna);
+//all three of below work (i.e. symbol must be a character not ptr):
+
+   //strcpy(str,luna);
+   //str[0]= *luna;
+   str[0] = *"*";
+//
    printf("%s\n",str);
    do {
+   //strcat comes from include string.h
       strcat(str,luna);
       k++;
       puts(str);
@@ -112,4 +155,12 @@ int print_stars_like_java(){
 
 void hello(){
    printf("hi!\n");
+}
+
+int max(int first, int second){
+   if (first > second){
+      return first;
+   } else{
+      return second;
+   }
 }
