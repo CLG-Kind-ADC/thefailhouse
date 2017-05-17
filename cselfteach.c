@@ -20,6 +20,7 @@ int func();
 void hello();
 int marcus();
 int katherine();
+void print_stars_like_java();
 
 int max();
 
@@ -74,7 +75,7 @@ print_stars_like_java();
 
 hello();
 
-printf("This is the greater number! %d\n",max(10,94));
+printf("This is the greater number of %d and %d: %d\n",10,94,max(10,94));
 printf("this should give exact same # as above: %d\n",max(10,94));
 
   // return 0;
@@ -130,7 +131,7 @@ int katherine(int qq)   {
    }while( qq < 20 );
  }
 
-int print_stars_like_java(){
+void print_stars_like_java(){
 // you must create a character array
 // and it must be long enough
 // also just declaring char str; won't work, because you can't
