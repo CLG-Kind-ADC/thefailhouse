@@ -1,8 +1,8 @@
 //#include <stdio.h>
-#include <stdio.h>
+#include "csupport.c"
 #include <float.h>
 #include <math.h>
-# include <string.h>
+#include <string.h>
 
 int i=10, j=11, k=290;
 int z = 19;
