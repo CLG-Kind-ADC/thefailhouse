@@ -78,6 +78,10 @@ hello();
 printf("This is the greater number of %d and %d: %d\n",10,94,max(10,94));
 printf("this should give exact same # as above: %d\n",max(10,94));
 
+//the only way I could actually test the string thing
+char hello[11];
+strcpy(hello,"hello, ");strcat(hello,"d");strcat(hello,"ear");
+puts(hello);
   // return 0;
 }
 
