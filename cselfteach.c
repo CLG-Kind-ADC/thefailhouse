@@ -24,6 +24,30 @@ void print_stars_like_java();
 
 int max();
 
+double getAverage(int arr[], int size){
+   int i;
+   double avg;
+   double sum = 0;
+
+   for (i = 0; i < size; ++i){
+      sum += arr[i];
+   }
+   avg = sum/size;
+   return avg;
+}
+
+double average2(int * arr, int size){
+   int i;
+   double avg; 
+   double sum = 0;
+
+   for(i=0; i<size; i++){
+      sum += arr[i]; 
+   }
+   avg = sum / size;
+   return avg;
+}
+
 int alternative_max(int one, int two){
    int result;
    if (one > two){
@@ -82,7 +106,22 @@ printf("this should give exact same # as above: %d\n",max(10,94));
 char hello[11];
 strcpy(hello,"hello, ");strcat(hello,"d");strcat(hello,"ear");
 puts(hello);
-  // return 0;
+
+int balance[5] = {1000, 2, 3, 17, 50};
+//array "balance" declared locally to function "main"
+double avg ;
+avg = getAverage(balance, 5);
+
+printf("after running the average function, average of balance is %f\n",avg);
+//above: %d doesn't show the "right" answer--has to be f. (float?)
+// Not sure why exactly.
+
+double avg2;
+int * a = balance;
+avg2 = average2(a, 5);
+printf("after running average2 fn, average of balance is %f\n",avg2);
+
+return 0;
 }
 
 //function definition: note it is after function call
