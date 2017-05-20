@@ -36,6 +36,11 @@ double getAverage(int arr[], int size){
    return avg;
 }
 
+//"pointer arithmetic": for example, pointer + 1 = address immediately following
+//integers
+
+//arr[i] = *(arr+i)
+//^ "move to the ith memory location from arr and dereference that"
 double average2(int * arr, int size){
    int i;
    double avg; 
@@ -47,6 +52,10 @@ double average2(int * arr, int size){
    avg = sum / size;
    return avg;
 }
+//above two fns: equivalent because params int arr[] and int * arr
+//are essentially treated as the same thing: pointer to 1st elem of
+//array, and then we iterate on the memory addresses going forward
+//which are of course the following elements of the array.
 
 int alternative_max(int one, int two){
    int result;
@@ -118,8 +127,13 @@ printf("after running the average function, average of balance is %f\n",avg);
 
 double avg2;
 int * a = balance;
-avg2 = average2(a, 5);
-printf("after running average2 fn, average of balance is %f\n",avg2);
+avg2 = average2(balance, 5);
+printf("after running average2 fn on balance, average of balance is %f\n",avg2);
+double zz  = average2(a,5);
+printf("after running average2 on int pointer assigned to balance, get %f\n",zz);
+
+// Names assigned to arrays are treated as pointers--that's why dereferencing
+// doesn't work as hoped
 
 return 0;
 }
@@ -160,6 +174,7 @@ int katherine(int qq)   {
 
 //the function after the keyword (LOOP) will run even
 // if not sent by the goto.
+//i had previously misunderstood this, leading to the "weird echo shit"
   LOOP:marcus(qq);      do {
  
       if( qq == 15) {
