@@ -230,6 +230,7 @@ book1.book_id=19867;
 printf("%s, %d\n", book1.title, book1.book_id);
 book_print(&book1);
 
+//union experimentation
 data.d = 5;
 printf("%d\n",data.d);
 data.f = 25.0;
@@ -239,8 +240,30 @@ strcpy(data.str, "hello there");
 printf("now you can't do %d and %f anymore\nbut you \
 can do this: %s\n", data.d, data.f, data.str);
 
-return 0;
+// struct and typedef experimentation
+struct may{
+   int i;
+   float x;
+} apr, jun;
 
+jun.i = 10; jun.x = 91.1;
+apr.i=14; apr.x = 10.4;
+printf("%d %f\n", jun.i, jun.x);
+printf("%f\n",jun.x + apr.x);
+
+struct may july; july.i = 89;
+printf("%d\n",july.i);
+
+typedef struct may May;
+
+May august;
+august.i = 87;
+printf("%d\n",august.i);
+
+//and the following code doesn't work: 'unknown type'
+//may december;
+
+return 0;
 }
 
 //function definition: note it is after function call
