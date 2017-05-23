@@ -70,6 +70,12 @@ int alternative_max(int one, int two){
    return result;
 }
 
+int *add(int *x, int *y){
+   static int z;
+   z = *x + *y;
+   return &z;
+}
+
 ///////////////
 // To return an array from a function in C
 //1.can only return a POINTER to the array (by specifying the array's name w/o an index)
@@ -88,6 +94,19 @@ srand( (unsigned)time( NULL ) ); //this line sets the seed
    return r;
 }
 
+typedef struct Books {
+   char  title[50];
+   char  author[50];
+   char  subject[100];
+   int   book_id;
+} book;
+
+void book_print(book * book){
+      printf( "Book title : %s\n", book->title);
+   printf( "Book author : %s\n", book->author);
+   printf( "Book subject : %s\n", book->subject);
+   printf( "Book book_id : %d\n", book->book_id);
+}
 
 int main(){
 	   printf("Storage size for float : %d \n", sizeof(float));
@@ -161,11 +180,38 @@ int * peter ;
 peter = getRandom();
 
 for (int i = 0; i<10; i++){
-   printf("returned var thingy. %dth element of array:\
+   printf("returned var thingy. %d element of array:\
  %d and is the same as %d\n", i, peter[i], *(peter+i));
 }
 
+//below: will print a nonsense value
+//(that is, 0)
+printf("%d\n",peter[11]);
+
+   int  var1;
+   char var2[10];
+
+   printf("Address of var1 variable: %x\n", &var1  );
+   printf("Address of var2 variable: %x\n", &var2  );
+
+int heaven = 10; int hell = 30;
+int *  earth;
+
+earth = add(&heaven, &hell);
+printf("the answer to %d + %d = %d\n", heaven, hell, *earth);
+
+book book1;
+book book2;
+strcpy(book1.title,"Fuck your mom");
+strcpy(book1.subject,"how to slap a ho");
+strcpy(book1.author, "celina midelfart");
+book1.book_id=19867;
+
+printf("%s, %d\n", book1.title, book1.book_id);
+book_print(&book1);
+
 return 0;
+
 }
 
 //function definition: note it is after function call
