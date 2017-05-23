@@ -114,7 +114,21 @@ void book_print(book * book){
    printf( "Book book_id : %d\n", book->book_id);
 }
 
+struct {
+   unsigned int x;
+   unsigned int y;
+} status1;
+
+struct {
+   unsigned int x:1;
+   unsigned int y:1;
+} status2;
+
 int main(){
+
+   printf("size of status1: %d\n",sizeof(status1)); //should be 8
+   printf("size of status2: %d\n",sizeof(status2)); //should be 4
+
 	   printf("Storage size for float : %d \n", sizeof(float));
    printf("Minimum float positive value: %E\n", FLT_MIN );//same thing as with %d
    printf("Maximum float positive value: %E\n", FLT_MAX );//same thing as with %d
