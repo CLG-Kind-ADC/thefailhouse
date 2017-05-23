@@ -38,6 +38,12 @@ double getAverage(int arr[], int size){
    return avg;
 }
 
+union Data{
+   int d;
+   float f;
+   char str[50];
+} data;
+
 //"pointer arithmetic": for example, pointer + 1 = address immediately following
 //integers
 
@@ -209,6 +215,15 @@ book1.book_id=19867;
 
 printf("%s, %d\n", book1.title, book1.book_id);
 book_print(&book1);
+
+data.d = 5;
+printf("%d\n",data.d);
+data.f = 25.0;
+printf("This works, %f + %f = %f\n",data.f, 6.0, data.f + 6.0);
+printf("But you can't do call this anymore: %d\n",data.d);
+strcpy(data.str, "hello there");
+printf("now you can't do %d and %f anymore\nbut you \
+can do this: %s\n", data.d, data.f, data.str);
 
 return 0;
 
