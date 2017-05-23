@@ -125,11 +125,7 @@ struct {
 } status2;
 
 int main(){
-
-   printf("size of status1: %d\n",sizeof(status1)); //should be 8
-   printf("size of status2: %d\n",sizeof(status2)); //should be 4
-
-	   printf("Storage size for float : %d \n", sizeof(float));
+printf("Storage size for float : %d \n", sizeof(float));
    printf("Minimum float positive value: %E\n", FLT_MIN );//same thing as with %d
    printf("Maximum float positive value: %E\n", FLT_MAX );//same thing as with %d
    printf("Precision value: %d\n", FLT_DIG );
@@ -262,6 +258,11 @@ printf("%d\n",august.i);
 
 //and the following code doesn't work: 'unknown type'
 //may december;
+
+   printf("size of status1: %d\n",sizeof(status1)); //should be 8
+   printf("size of status2: %d\n",sizeof(status2)); //should be 4
+
+      
 
 return 0;
 }
