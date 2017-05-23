@@ -5,6 +5,7 @@
 #include <string.h>
 #include <time.h>
 #include <stdlib.h>
+#include <assert.h>
 
 int i=10, j=11, k=290;
 int z = 19;
@@ -123,6 +124,17 @@ struct {
    unsigned int x:1;
    unsigned int y:1;
 } status2;
+
+
+void temp_converter(float start_celsius, float end_celsius, float step){
+   
+   printf("Celsius\t\tFahrenheit\n");
+   printf("------\t\t---------\n");
+   for (float i = start_celsius; i < end_celsius; i+=step){
+      printf("%f\t%f\n",i, i*9.0/5.0 + 32 );
+   }
+}
+
 
 int main(){
 printf("Storage size for float : %d \n", sizeof(float));
@@ -259,10 +271,17 @@ printf("%d\n",august.i);
 //and the following code doesn't work: 'unknown type'
 //may december;
 
-   printf("size of status1: %d\n",sizeof(status1)); //should be 8
-   printf("size of status2: %d\n",sizeof(status2)); //should be 4
+//bit field experimentation
+printf("size of status1: %d\n",sizeof(status1)); //should be 8
+printf("size of status2: %d\n",sizeof(status2)); //should be 4
 
-      
+//another note: different values take up different bit sizes?
+// for example values from 0-7 take up 3 bits but a value of 8
+// takes up more.
+
+//32 1 bit width fields, up to 4 bytes. hit 33, go up to 8.
+
+temp_converter(10.0,20.0,4.0);
 
 return 0;
 }
@@ -271,6 +290,41 @@ return 0;
 // a la forward declaration
 int func(){
 	return 0;
+}
+
+void print_stars_like_java(){
+// you must create a character array
+// and it must be long enough
+// also just declaring char str; won't work, because you can't
+// add on to it in C: no appending (at leastI'm pretty sure)
+   char str[10];
+   int k= 0;
+   char* luna = "*";
+//all three of below work (i.e. symbol must be a character not ptr):
+
+   //strcpy(str,luna);
+   //str[0]= *luna;
+   str[0] = *"*";
+//
+   printf("%s\n",str);
+   do {
+   //strcat comes from include string.h
+      strcat(str,luna);
+      k++;
+      puts(str);
+   } while (k<8);
+}
+
+void hello(){
+   printf("hi!\n");
+}
+
+int max(int first, int second){
+   if (first > second){
+      return first;
+   } else{
+      return second;
+   }
 }
 
 //next section:
@@ -317,38 +371,3 @@ int katherine(int qq)   {
       qq++;
    }while( qq < 20 );
  }
-
-void print_stars_like_java(){
-// you must create a character array
-// and it must be long enough
-// also just declaring char str; won't work, because you can't
-// add on to it in C: no appending (at leastI'm pretty sure)
-   char str[10];
-   int k= 0;
-   char* luna = "*";
-//all three of below work (i.e. symbol must be a character not ptr):
-
-   //strcpy(str,luna);
-   //str[0]= *luna;
-   str[0] = *"*";
-//
-   printf("%s\n",str);
-   do {
-   //strcat comes from include string.h
-      strcat(str,luna);
-      k++;
-      puts(str);
-   } while (k<8);
-}
-
-void hello(){
-   printf("hi!\n");
-}
-
-int max(int first, int second){
-   if (first > second){
-      return first;
-   } else{
-      return second;
-   }
-}
