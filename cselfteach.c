@@ -5,7 +5,13 @@
 #include <string.h>
 #include <time.h>
 #include <stdlib.h>
-#include <assert.h>
+//#include <assert.h>
+
+#define TRUE 1
+#define _4 "DEVIL"
+//tutorialspoint appears to have lied, you can't
+//define a digit. or perhaps they got mixed up.
+
 
 int i=10, j=11, k=290;
 int z = 19;
@@ -135,6 +141,7 @@ void temp_converter(float start_celsius, float end_celsius, float step){
    }
 }
 
+void something();
 
 int main(){
 printf("Storage size for float : %d \n", sizeof(float));
@@ -232,7 +239,7 @@ book book1;
 book book2;
 strcpy(book1.title,"Fuck your mom");
 strcpy(book1.subject,"how to slap a ho");
-strcpy(book1.author, "celina midelfart");
+strcpy(book1.author, "melanija knavs");
 book1.book_id=19867;
 
 printf("%s, %d\n", book1.title, book1.book_id);
@@ -282,6 +289,15 @@ printf("size of status2: %d\n",sizeof(status2)); //should be 4
 //32 1 bit width fields, up to 4 bytes. hit 33, go up to 8.
 
 temp_converter(10.0,20.0,4.0);
+
+printf("value of TRUE: %d\n",TRUE);
+printf("value of _4: %s\n",_4);
+
+putchar('x');putchar('\n');
+//don't want to leave in a getchar (below) because I don't want
+//program to have to wait for me. I'll just forget.
+//int c = getchar();
+//putchar(c);putchar('\n');
 
 return 0;
 }
@@ -371,3 +387,18 @@ int katherine(int qq)   {
       qq++;
    }while( qq < 20 );
  }
+
+// function not to call because it has scanf and I don't want to
+// bother with user inputs
+// but I thought it illustrated scanf
+ void something(){
+
+char str1[100];
+char str2[100];
+int i;
+scanf("%s %s %d", str1, str2, &i);
+
+ }
+//scanf: needs buffers or an integer declared but not init
+//(and will use the pointer)
+//and needs to match or else it will crash the program
