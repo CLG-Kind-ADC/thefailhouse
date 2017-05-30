@@ -143,6 +143,7 @@ void temp_converter(float start_celsius, float end_celsius, float step){
 
 void something();
 
+
 int main(){
 printf("Storage size for float : %d \n", sizeof(float));
    printf("Minimum float positive value: %E\n", FLT_MIN );//same thing as with %d
@@ -298,6 +299,15 @@ putchar('x');putchar('\n');
 //program to have to wait for me. I'll just forget.
 //int c = getchar();
 //putchar(c);putchar('\n');
+
+
+// setting up/testing for Cprogramming.com 2nd Basic Programming Challenge
+char buffer[13];
+strcpy(buffer, "hi im dyrus") ;
+if (strrchr(buffer,'\n')){
+   printf("Hello\n");
+} else { printf("Byebye\n");}
+puts(buffer);
 
 return 0;
 }
