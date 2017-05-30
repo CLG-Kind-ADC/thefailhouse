@@ -143,6 +143,8 @@ void temp_converter(float start_celsius, float end_celsius, float step){
 
 void something();
 
+static char buffer[13];
+
 
 int main(){
 printf("Storage size for float : %d \n", sizeof(float));
@@ -302,8 +304,8 @@ putchar('x');putchar('\n');
 
 
 // setting up/testing for Cprogramming.com 2nd Basic Programming Challenge
-char buffer[13];
-strcpy(buffer, "hi im dyrus") ;
+
+strcpy(buffer,"hi im dyrus\n");
 if (strrchr(buffer,'\n')){
    printf("Hello\n");
 } else { printf("Byebye\n");}
