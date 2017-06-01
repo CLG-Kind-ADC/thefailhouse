@@ -12,6 +12,9 @@
 //tutorialspoint appears to have lied, you can't
 //define a digit. or perhaps they got mixed up.
 
+//experimenting with
+# define tokenpaster(n,y) printf("richard " #n " = %d\n", token##y)
+
 
 int i=10, j=11, k=290;
 int z = 19;
@@ -89,6 +92,12 @@ int *add(int *x, int *y){
    return &z;
 }
 
+# define message_for(a,b) \
+ puts(#a " and " #b ": Kick some NV A$$")
+ // ^no semicolon?
+ //works with puts...hm. I guess puts can do this
+ // but it can't do "%d",10?
+
 ///////////////
 // To return an array from a function in C
 //1.can only return a POINTER to the array (by specifying the array's name w/o an index)
@@ -145,7 +154,7 @@ void something();
 
 static char buffer[13];
 
-
+#define EXIE 20
 int main(){
 printf("Storage size for float : %d \n", sizeof(float));
    printf("Minimum float positive value: %E\n", FLT_MIN );//same thing as with %d
@@ -310,6 +319,26 @@ if (strrchr(buffer,'\n')){
    printf("Hello\n");
 } else { printf("Byebye\n");}
 puts(buffer);
+
+printf("%d\n",EXIE);
+
+printf("File :%s\n", __FILE__ ); //this file's name
+printf("Date :%s\n", __DATE__ ); //today's date
+printf("Time :%s\n", __TIME__ ); //time right now (run time)
+printf("Line :%d\n", __LINE__ ); //line this command is on
+printf("ANSI :%d\n", __STDC__ ); //"Def'd as 1 when compiler complies w/ANSI standard."
+
+//demonstrates both stringize (#) and macro continuation op (\)
+//the continuation op seems to work for regular C strings too
+message_for(Nathan, Kenny);
+// don't need quotes. preprocessor beauty
+
+//testing puts vs printf
+printf("%d\nwhere is shoxie\t\ttaco I don't know%f\n",10,10.0);
+//puts("%d\nwhere is json\tderulo I don't know%f\n",10,10.0);
+
+int tokentest = 73;
+tokenpaster(papillon,test);
 
 return 0;
 }
