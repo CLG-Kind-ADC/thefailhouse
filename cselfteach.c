@@ -354,7 +354,7 @@ tokenpaster_digit(1950);
    fp = fopen("tmp/test.txt", "w+"); //the tutorial says "/tmp/test.txt" but that doesn't work
    //also it appears it has to be in the working directory or lower, can't open one higher up.
    fprintf(fp, "Nathan...\n");
-   fputs("Kenny...\n", fp);
+   fputs("Kenny...\n", fp); // these overwrite what was there before.
    fclose(fp);
 
 int h = PREPROCESS_SQUARE(9); printf("%d\n",h);
