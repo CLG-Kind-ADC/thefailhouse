@@ -13,8 +13,8 @@
 //define a digit. or perhaps they got mixed up.
 
 //experimenting with
-# define tokenpaster(n,y) printf("richard " #n " = %d\n", token##y)
-
+# define tokenpasteR_string(n,y) printf("richard " #n " = %s\n", parasail_##y)
+# define tokenpaster_digit(n) printf("token " #n " = %d\n",digit##n)
 
 int i=10, j=11, k=290;
 int z = 19;
@@ -148,6 +148,13 @@ void temp_converter(float start_celsius, float end_celsius, float step){
    for (float i = start_celsius; i < end_celsius; i+=step){
       printf("%f\t%f\n",i, i*9.0/5.0 + 32 );
    }
+}
+
+// parametrized macro square
+#define PREPROCESS_SQUARE(x) ((x) * (x))
+//C-function square
+int function_square(int x){
+   return x*x;
 }
 
 void something();
@@ -337,8 +344,21 @@ message_for(Nathan, Kenny);
 printf("%d\nwhere is shoxie\t\ttaco I don't know%f\n",10,10.0);
 //puts("%d\nwhere is json\tderulo I don't know%f\n",10,10.0);
 
-int tokentest = 73;
-tokenpaster(papillon,test);
+char parasail_test[10]; strcpy(parasail_test,"Hello");
+tokenpasteR_string(papillon,test);
+int digit1950 = 1492;
+tokenpaster_digit(1950);
+
+   FILE *fp;
+
+   fp = fopen("tmp/test.txt", "w+"); //the tutorial says "/tmp/test.txt" but that doesn't work
+   //also it appears it has to be in the working directory or lower, can't open one higher up.
+   fprintf(fp, "Nathan...\n");
+   fputs("Kenny...\n", fp);
+   fclose(fp);
+
+int h = PREPROCESS_SQUARE(9); printf("%d\n",h);
+int lauren = function_square(7); printf("%d\n",lauren);
 
 return 0;
 }
