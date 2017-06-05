@@ -387,6 +387,11 @@ if (rashardlewis==fp){printf(" location, and so does fp\n");}
 int h = PREPROCESS_SQUARE(9); printf("%d\n",h);
 int lauren = function_square(7); printf("%d\n",lauren);
 
+int sumx=17, countx = 5;
+double meanx;
+meanx=(double)sumx/countx;
+printf("value of meanx: %f\n",meanx);
+
 return 0;
 }
 
@@ -490,3 +495,22 @@ scanf("%s %s %d", str1, str2, &i);
 //scanf: needs buffers or an integer declared but not init
 //(and will use the pointer)
 //and needs to match or else it will crash the program
+
+ /*
+ #include ANYTHING ELSE'
+     This variant is called a "computed #include".  Any `#include'
+     directive whose argument does not fit the above two forms is a
+     computed include.  The text ANYTHING ELSE is checked for macro
+     calls, which are expanded (see Macros.).  When this is done,
+     the result must fit one of the above two variants--in particular,
+     the expanded text must in the end be surrounded by either quotes
+     or angle braces.
+
+     This feature allows you to define a macro which controls the file
+     name to be used at a later point in the program.  One application
+     of this is to allow a site-specific configuration file for your
+     program to specify the names of the system include files to be
+     used.  This can help in porting the program to various operating
+     systems in which the necessary system header files are found in
+     different places.
+*/
