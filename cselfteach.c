@@ -162,6 +162,18 @@ void something();
 static char buffer[13];
 
 #define EXIE 20
+
+// recursion examples
+int factorial(unsigned int i);
+int fibonacci(int i){
+   if (i<=0){
+      return 0;
+         }
+         if (i == 1){
+            return 1;
+         } return fibonacci(i-1)+fibonacci(i-2);
+}
+
 int main(){
 printf("Storage size for float : %d \n", sizeof(float));
    printf("Minimum float positive value: %E\n", FLT_MIN );//same thing as with %d
@@ -386,6 +398,14 @@ printf("value of meanx: %f\n",meanx);
       fclose (pf);
    }
 
+int curry = 15;
+printf("Factorial of %d is %d\n",curry, factorial(curry));
+
+int lorenza;
+for (lorenza=0; lorenza<10;lorenza++){
+   printf("%d\t\n",fibonacci(lorenza));
+}
+
 return 0;
 }
 
@@ -490,6 +510,11 @@ scanf("%s %s %d", str1, str2, &i);
 //(and will use the pointer)
 //and needs to match or else it will crash the program
 
+int factorial(unsigned int i){
+   if (i<=1){
+return 1;
+   }
+else {return i* factorial(i-1);}}
 
 // Extra Notes
 
