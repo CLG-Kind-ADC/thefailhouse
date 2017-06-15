@@ -6,6 +6,7 @@
 #include <time.h>
 #include <stdlib.h>
 //#include <assert.h>
+#include <stdarg.h>
 
 #define TRUE 1
 #define _4 "DEVIL"
@@ -172,6 +173,20 @@ int fibonacci(int i){
          if (i == 1){
             return 1;
          } return fibonacci(i-1)+fibonacci(i-2);
+}
+
+double getMean(int num, ...){
+   va_list valist; //valist created
+   double sum = 0.0;
+   int i;
+//initialize valist to a certain size using va_start, num is the size
+   va_start(valist,num);
+   for (i = 0; i< num; i++){
+sum += va_arg(valist,int); //expands to the next
+   }
+      va_end(valist);
+   return sum/num;
+
 }
 
 int main(){
@@ -368,6 +383,7 @@ tokenpaster_digit(1950);
 int h = PREPROCESS_SQUARE(9); printf("%d\n",h);
 int lauren = function_square(7); printf("%d\n",lauren);
 
+// Type casting
 int sumx=17, countx = 5;
 double meanx;
 meanx=(double)sumx/countx;
@@ -405,6 +421,37 @@ int lorenza;
 for (lorenza=0; lorenza<10;lorenza++){
    printf("%d\t\n",fibonacci(lorenza));
 }
+
+printf("average of 6, 98, 2, 55: %f\n",getMean(4, 6,98,2,55));
+printf("average of 10, 9, 8: %f\n",getMean(3, 8, 9, 10));
+
+   char name0[100];
+   char *description0;
+
+   strcpy(name0, "Andre Iguodala");
+
+   /* allocate memory dynamically */
+   description0 = malloc( 50 * sizeof(char) ); // or calloc(200,sizeof(char));
+   
+   if( description0 == NULL ) {
+      fprintf(stderr, "Error - unable to allocate required memory\n");
+   }
+   else {
+      strcpy( description0, "Andre Iggy Is a Man of Great Arms");
+   }
+   
+   printf("Name = %s\n", name0 );
+   printf("Description: %s\n", description0 );
+
+   if (description0 != NULL){
+      description0=realloc(description0, 100 * sizeof(char));
+   } strcpy(description0,"This overrides the description");
+   //strcat(description0,"This would have appended.")
+   //and if we had added something longer, strcat would have "given an error
+   // due to lack of available memory in `description0`."
+
+   printf("Description: %s\n",description0);
+   free(description0);
 
 return 0;
 }
@@ -536,3 +583,9 @@ else {return i* factorial(i-1);}}
      systems in which the necessary system header files are found in
      different places.
 */
+
+/* C Standard Library Header Files
+assert.h, ctype.h, errno.h, float.h,
+limits.h, locale.h, math.h, setjmp.h,
+signal.h, stdarg.h, stddef.h, stdio.h,
+stdlib.h, string.h, time.h */
