@@ -1,5 +1,5 @@
 //#include <stdio.h>
-#include "csupport.c"
+#include "csupport.c" //stdio is in here
 #include <float.h>
 #include <math.h>
 #include <string.h>
