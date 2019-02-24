@@ -83,14 +83,14 @@ library(prophet)
 
 
 # thinking about data sets to use for clustering
-sb_small = read.csv("~/OneDrive - RAPP/test_repo_holder/AAA-Sandbox-Phoebe/other_things/soybean_small.txt",header=F)
+sb_small = read.csv("/Volumes/SSG SSD T3/thefailhouse/soybean_small.txt",header=F)
 YaleToolkit::whatis(sb_small)
 # hhmmm...
 # maybe some of those numbers are actually categorical factors.
 # read the note in the paper. ALL of those numbers are supposed to be categorical factors.
 
 #tests for the python script
-cred_approv=read.csv("~/OneDrive - RAPP/test_repo_holder/AAA-Sandbox-Phoebe/other_things/credit_approval.txt",header=F)
+cred_approv=read.csv("/Volumes/SSG SSD T3/thefailhouse/credit_approval.txt",header=F)
 YaleToolkit::whatis(cred_approv)
 # no missing vals after all?
 # damn, no. the ones that are, are given as "?"
@@ -102,4 +102,4 @@ cred_approv = cred_approv[-q_marks,]
 write.table(cred_approv,"cleaned_credit_approval.txt",row.names = F,sep=",")
 YaleToolkit::whatis(cred_approv)
 
-write((q_marks-1),"~/OneDrive - RAPP/test_repo_holder/AAA-Sandbox-Phoebe/other_things/exclude_these.txt",ncolumns = 1)
+write((q_marks-1),"/Volumes/SSG SSD T3/thefailhouse/exclude_these.txt",ncolumns = 1)
