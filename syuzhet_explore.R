@@ -31,3 +31,15 @@ selected_dict[which(selected_dict$word == "educa"),]
 selected_dict[which(selected_dict$word == "educational"),]
 selected_dict[which(selected_dict$word == "university"),]
 selected_dict[which(selected_dict$word == "glory"),] #
+
+selected_dict[which(selected_dict$word == "falling"),]
+selected_dict[which(selected_dict$word == "futuristic"),]
+selected_dict[which(selected_dict$word == "future"),]
+
+selected_dict[which(selected_dict$word == "jaded"),]
+selected_dict[which(selected_dict$word == "faded"),]
+selected_dict[which(selected_dict$word == "faint"),]
+
+selected_dict[which(selected_dict$word == "vehicle"),]
+selected_dict[which(selected_dict$word == "vehicular"),]
+selected_dict[grepl("auto",selected_dict$word),] # there's autonomous
